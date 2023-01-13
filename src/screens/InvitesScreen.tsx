@@ -172,7 +172,7 @@ const forSlide: StackCardStyleInterpolator = ({
   };
 };
 
-export const TokenListNavigator = () => {
+export const InvitesScreen = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -183,12 +183,12 @@ export const TokenListNavigator = () => {
       <Stack.Screen
         name="List"
         component={List}
-        options={{ title: "Token List" }}
+        options={{ title: "INVITE LIST" }}
       />
       <Stack.Screen
         name="Detail"
         component={Detail}
-        options={{ title: "Token Detail" }}
+        options={{ title: "INVITE DETAIL" }}
       />
     </Stack.Navigator>
   );

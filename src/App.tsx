@@ -4,11 +4,11 @@ import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useFonts, Inter_900Black } from "@expo-google-fonts/dev";
+import { useFonts, Montserrat_800ExtraBold, Inter_900Black } from "@expo-google-fonts/dev";
 
-import { ExamplesScreens } from "./screens/ExamplesScreen";
+import { InvitesScreen } from "./screens/InvitesScreen";
 import { HomeScreen } from "./screens/HomeScreen";
-import { TokenListNavigator } from "./screens/TokenNavigator";
+import { AchievementsScreen } from "./screens/AchievementsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,37 +17,41 @@ function TabNavigator() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "#e91e63",
+        tabBarActiveTintColor: "#000000",
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontFamily: Montserrat_800ExtraBold
+        },
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HOME"
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="List"
-        component={TokenListNavigator}
+        name="INVITES"
+        component={InvitesScreen}
         options={{
           headerShown: false,
-          tabBarLabel: "Tokens",
+          tabBarLabel: "My Invites",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bank" color={color} size={size} />
+            <MaterialCommunityIcons name="message-plus" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Examples"
-        component={ExamplesScreens}
+        name="ACHIEVEMENTS"
+        component={AchievementsScreen}
         options={{
-          tabBarLabel: "Examples",
+          tabBarLabel: "Achievements",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="account-star" color={color} size={size} />
           ),
         }}
       />
@@ -58,11 +62,12 @@ function TabNavigator() {
 function App() {
   let [fontsLoaded] = useFonts({
     Inter_900Black,
+    Montserrat_800ExtraBold
   });
 
   if (!fontsLoaded) {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", height: "100%", backgroundColor: "#111827" }}>
         <ActivityIndicator />
       </View>
     );
