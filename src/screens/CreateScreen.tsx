@@ -31,20 +31,14 @@ const testAtom = atom<"native" | "bright">({
   default: "native",
 });
 
-function LearnMoreLink({ url }: { url: string }) {
-  return <Text onPress={() => Linking.openURL(url)}>Learn more</Text>;
-}
-
-export function AchievementsScreen() {
-  const [future, setFuture] = useRecoilState(testAtom);
-
+export function CreateScreen() {
   return (
     <Screen style={{ backgroundColor: "#000000" }}>
       <ScrollView>
         <Text
           style={tw`mb-0 mt-5 font-extrabold size-24 text-center text-36px text-white`}
         >
-          ACHIEVEMENTS{" "}
+          CREATOR PORTAL{" "}
         </Text>
         <Text
           style={tw`mb-0 mt-5 font-normal size-24 text-center text-18px text-white`}
